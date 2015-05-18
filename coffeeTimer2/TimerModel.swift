@@ -6,8 +6,19 @@
 //  Copyright (c) 2015 procload. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 class TimerModel: NSObject {
-   
+    var coffeeName = ""
+    var duration = 0
+    
+    override var description: String {
+        return "TimerModel(\(coffeeName))"
+    }
+    
+    init(coffeeName: String, duration: Int) {
+        self.coffeeName = coffeeName
+        self.duration = duration
+        super.init()
+    }
 }

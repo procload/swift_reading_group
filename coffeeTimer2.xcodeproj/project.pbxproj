@@ -13,6 +13,9 @@
 		94447C711AF13C730074E937 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94447C701AF13C730074E937 /* Images.xcassets */; };
 		94447C741AF13C730074E937 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94447C721AF13C730074E937 /* LaunchScreen.xib */; };
 		94447C801AF13C730074E937 /* coffeeTimer2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94447C7F1AF13C730074E937 /* coffeeTimer2Tests.swift */; };
+		94792EB21AF93DBA00240A05 /* TimerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94792EB11AF93DBA00240A05 /* TimerModel.swift */; };
+		94792EB41AF9460600240A05 /* TimerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94792EB31AF9460600240A05 /* TimerDetailViewController.swift */; };
+		94A6D0511AFAACDF006D4121 /* TimerEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94A6D0501AFAACDF006D4121 /* TimerEditViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +39,9 @@
 		94447C791AF13C730074E937 /* coffeeTimer2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = coffeeTimer2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		94447C7E1AF13C730074E937 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		94447C7F1AF13C730074E937 /* coffeeTimer2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = coffeeTimer2Tests.swift; sourceTree = "<group>"; };
+		94792EB11AF93DBA00240A05 /* TimerModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerModel.swift; sourceTree = "<group>"; };
+		94792EB31AF9460600240A05 /* TimerDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerDetailViewController.swift; sourceTree = "<group>"; };
+		94A6D0501AFAACDF006D4121 /* TimerEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerEditViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,11 +83,11 @@
 		94447C661AF13C730074E937 /* coffeeTimer2 */ = {
 			isa = PBXGroup;
 			children = (
-				94447C691AF13C730074E937 /* AppDelegate.swift */,
 				94447C6B1AF13C730074E937 /* ViewController.swift */,
 				94447C6D1AF13C730074E937 /* Main.storyboard */,
-				94447C701AF13C730074E937 /* Images.xcassets */,
-				94447C721AF13C730074E937 /* LaunchScreen.xib */,
+				94A6D0501AFAACDF006D4121 /* TimerEditViewController.swift */,
+				94792EB31AF9460600240A05 /* TimerDetailViewController.swift */,
+				94792EB11AF93DBA00240A05 /* TimerModel.swift */,
 				94447C671AF13C730074E937 /* Supporting Files */,
 			);
 			path = coffeeTimer2;
@@ -90,6 +96,9 @@
 		94447C671AF13C730074E937 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				94447C691AF13C730074E937 /* AppDelegate.swift */,
+				94447C701AF13C730074E937 /* Images.xcassets */,
+				94447C721AF13C730074E937 /* LaunchScreen.xib */,
 				94447C681AF13C730074E937 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -212,6 +221,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94792EB21AF93DBA00240A05 /* TimerModel.swift in Sources */,
+				94A6D0511AFAACDF006D4121 /* TimerEditViewController.swift in Sources */,
+				94792EB41AF9460600240A05 /* TimerDetailViewController.swift in Sources */,
 				94447C6C1AF13C730074E937 /* ViewController.swift in Sources */,
 				94447C6A1AF13C730074E937 /* AppDelegate.swift in Sources */,
 			);
@@ -411,6 +423,7 @@
 				94447C851AF13C730074E937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		94447C861AF13C730074E937 /* Build configuration list for PBXNativeTarget "coffeeTimer2Tests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +432,7 @@
 				94447C881AF13C730074E937 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

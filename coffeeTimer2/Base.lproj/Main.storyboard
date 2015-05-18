@@ -1,25 +1,205 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2fR-3F-avx">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="coffeeTimer2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="wqv-dq-9Uw"/>
+                        <viewControllerLayoutGuide type="bottom" id="bEC-Bu-LL4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sS6-ai-CC0">
+                                <rect key="frame" x="277" y="72" width="47" height="30"/>
+                                <state key="normal" title="Details">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="OXv-DG-TO3" kind="show" identifier="pushDetail" id="iEb-xn-J0V"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D2X-R3-gNd">
+                                <rect key="frame" x="277" y="110" width="46" height="30"/>
+                                <state key="normal" title="Edit">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="0AT-vE-mNG" kind="presentation" identifier="editDetail" id="Cjq-aQ-fZB"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="D2X-R3-gNd" firstAttribute="centerX" secondItem="sS6-ai-CC0" secondAttribute="centerX" id="4MW-1O-Xrk"/>
+                            <constraint firstItem="D2X-R3-gNd" firstAttribute="top" secondItem="sS6-ai-CC0" secondAttribute="bottom" constant="8" symbolic="YES" id="DeM-xE-HWM"/>
+                            <constraint firstAttribute="centerX" secondItem="sS6-ai-CC0" secondAttribute="centerX" id="cQM-XJ-iqq"/>
+                            <constraint firstItem="D2X-R3-gNd" firstAttribute="leading" secondItem="sS6-ai-CC0" secondAttribute="leading" id="gVG-o1-QhI"/>
+                            <constraint firstItem="sS6-ai-CC0" firstAttribute="top" secondItem="wqv-dq-9Uw" secondAttribute="bottom" constant="8" id="xJh-cc-W9W"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="sNv-Ie-PUY"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="452" y="733"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="qSG-Nb-S96">
+            <objects>
+                <navigationController id="0AT-vE-mNG" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="05w-Wx-TlW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="UcH-JJ-Ejp" kind="relationship" relationship="rootViewController" id="sHQ-l9-cdT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fEx-r8-Vmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="479" y="-185"/>
+        </scene>
+        <!--Timer Edit View Controller-->
+        <scene sceneID="KpZ-z9-SrD">
+            <objects>
+                <viewController id="UcH-JJ-Ejp" customClass="TimerEditViewController" customModule="coffeeTimer2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oy1-vV-ekd"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lwx-Bc-8l6"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="I4Y-At-NQl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Coffee" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bza-Rx-95K">
+                                <rect key="frame" x="16" y="72" width="568" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minutes" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRz-9s-x4Y">
+                                <rect key="frame" x="16" y="116" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seconds" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e2R-qL-Z9W">
+                                <rect key="frame" x="16" y="196" width="568" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="CCT-xK-eSQ" customClass="minutesSlider">
+                                <rect key="frame" x="14" y="139" width="572" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="UcH-JJ-Ejp" eventType="valueChanged" id="ydR-0l-8My"/>
+                                </connections>
+                            </slider>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="59" translatesAutoresizingMaskIntoConstraints="NO" id="AES-Pa-oKu" customClass="secondsSlider">
+                                <rect key="frame" x="14" y="220" width="572" height="31"/>
+                                <connections>
+                                    <action selector="sliderValueChanged:" destination="UcH-JJ-Ejp" eventType="valueChanged" id="Jvc-G4-ITE"/>
+                                </connections>
+                            </slider>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CCT-xK-eSQ" firstAttribute="trailing" secondItem="rRz-9s-x4Y" secondAttribute="trailing" id="1zr-X7-g4J"/>
+                            <constraint firstItem="bza-Rx-95K" firstAttribute="leading" secondItem="I4Y-At-NQl" secondAttribute="leadingMargin" id="6CO-UW-fJH"/>
+                            <constraint firstItem="rRz-9s-x4Y" firstAttribute="trailing" secondItem="bza-Rx-95K" secondAttribute="trailing" id="AbU-gh-tgw"/>
+                            <constraint firstItem="AES-Pa-oKu" firstAttribute="top" secondItem="e2R-qL-Z9W" secondAttribute="bottom" constant="3" id="BwN-rR-ZOY"/>
+                            <constraint firstItem="CCT-xK-eSQ" firstAttribute="leading" secondItem="rRz-9s-x4Y" secondAttribute="leading" id="Jzm-dP-O1p"/>
+                            <constraint firstItem="AES-Pa-oKu" firstAttribute="trailing" secondItem="CCT-xK-eSQ" secondAttribute="trailing" id="KHl-EL-zYT"/>
+                            <constraint firstItem="bza-Rx-95K" firstAttribute="top" secondItem="oy1-vV-ekd" secondAttribute="bottom" constant="8" symbolic="YES" id="L2e-cS-jFs"/>
+                            <constraint firstItem="e2R-qL-Z9W" firstAttribute="trailing" secondItem="AES-Pa-oKu" secondAttribute="trailing" id="POe-vk-F3Z"/>
+                            <constraint firstItem="e2R-qL-Z9W" firstAttribute="top" secondItem="CCT-xK-eSQ" secondAttribute="bottom" constant="27" id="gsQ-VI-THy"/>
+                            <constraint firstItem="rRz-9s-x4Y" firstAttribute="top" secondItem="bza-Rx-95K" secondAttribute="bottom" constant="14" id="hf1-UB-LAR"/>
+                            <constraint firstItem="AES-Pa-oKu" firstAttribute="leading" secondItem="CCT-xK-eSQ" secondAttribute="leading" id="lOh-kL-Egh"/>
+                            <constraint firstItem="rRz-9s-x4Y" firstAttribute="leading" secondItem="bza-Rx-95K" secondAttribute="leading" id="m4h-uc-Bfa"/>
+                            <constraint firstItem="bza-Rx-95K" firstAttribute="trailing" secondItem="I4Y-At-NQl" secondAttribute="trailingMargin" id="rBe-Hv-eIP"/>
+                            <constraint firstItem="CCT-xK-eSQ" firstAttribute="top" secondItem="rRz-9s-x4Y" secondAttribute="bottom" constant="2" id="ubH-G7-XnO"/>
+                            <constraint firstItem="e2R-qL-Z9W" firstAttribute="leading" secondItem="AES-Pa-oKu" secondAttribute="leading" id="waB-cL-6Ga"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Sga-jJ-EKK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Y6f-0d-Lgw">
+                            <connections>
+                                <action selector="cancelWasPressed:" destination="UcH-JJ-Ejp" id="FBg-0D-0dp"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="L8v-xs-Zhe">
+                            <connections>
+                                <action selector="doneWasPressed:" destination="UcH-JJ-Ejp" id="bNb-k8-I0S"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="minutesLabel" destination="rRz-9s-x4Y" id="ma0-PB-iMm"/>
+                        <outlet property="minutesSlider" destination="CCT-xK-eSQ" id="nub-Lv-a73"/>
+                        <outlet property="nameField" destination="bza-Rx-95K" id="uHH-17-TrW"/>
+                        <outlet property="secondsLabel" destination="e2R-qL-Z9W" id="imQ-ih-bxc"/>
+                        <outlet property="secondsSlider" destination="AES-Pa-oKu" id="nzs-fz-5Y2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5ZS-c2-Ywf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1230" y="-185"/>
+        </scene>
+        <!--Timer Detail View Controller-->
+        <scene sceneID="zKt-i1-53b">
+            <objects>
+                <viewController id="OXv-DG-TO3" customClass="TimerDetailViewController" customModule="coffeeTimer2" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zcx-4o-0Dk"/>
+                        <viewControllerLayoutGuide type="bottom" id="1Tw-li-X1t"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TxH-gI-Hm9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a84-lL-YNk">
+                                <rect key="frame" x="279" y="72" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="a84-lL-YNk" firstAttribute="top" secondItem="zcx-4o-0Dk" secondAttribute="bottom" constant="8" symbolic="YES" id="Ch1-xC-ExT"/>
+                            <constraint firstItem="a84-lL-YNk" firstAttribute="centerX" secondItem="TxH-gI-Hm9" secondAttribute="centerX" id="T8j-K2-YdT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="durationLabel" destination="a84-lL-YNk" id="sen-b8-O3Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wem-AO-i5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1322" y="711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="wSu-km-0Le">
+            <objects>
+                <navigationController id="2fR-3F-avx" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G9k-WD-Vnr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="PyR-nK-ijg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Db1-rz-d5h" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-354.375" y="998.23943661971828"/>
         </scene>
     </scenes>
 </document>
