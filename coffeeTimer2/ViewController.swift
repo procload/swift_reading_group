@@ -38,7 +38,8 @@ class ViewController: UIViewController {
                 println("Error")
             }
         } else if segue.identifier == "editDetail" {
-            if let navigationController = segue.destinationViewController as? UINavigationController, viewController = navigationController.topViewController as? TimerEditViewController {
+            if let navigationController = segue.destinationViewController as? UINavigationController,
+                viewController = navigationController.topViewController as? TimerEditViewController {
                 viewController.timerModel = timerModel
             }
         }

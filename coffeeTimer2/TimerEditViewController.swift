@@ -23,6 +23,8 @@ class TimerEditViewController: UIViewController {
     }
     
     @IBAction func doneWasPressed(sender: AnyObject) {
+        timerModel.coffeeName = nameField.text
+        timerModel.duration = Int(minutesSlider.value) * 60 + Int(secondsSlider.value)
         presentingViewController?.dismissViewControllerAnimated(true, completion: nil)
     }
     

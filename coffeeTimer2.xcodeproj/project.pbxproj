@@ -83,11 +83,9 @@
 		94447C661AF13C730074E937 /* coffeeTimer2 */ = {
 			isa = PBXGroup;
 			children = (
-				94447C6B1AF13C730074E937 /* ViewController.swift */,
 				94447C6D1AF13C730074E937 /* Main.storyboard */,
-				94A6D0501AFAACDF006D4121 /* TimerEditViewController.swift */,
-				94792EB31AF9460600240A05 /* TimerDetailViewController.swift */,
-				94792EB11AF93DBA00240A05 /* TimerModel.swift */,
+				94CC9B811B0CD6330087B0AD /* View Controllers */,
+				94CC9B821B0CD64A0087B0AD /* Models */,
 				94447C671AF13C730074E937 /* Supporting Files */,
 			);
 			path = coffeeTimer2;
@@ -119,6 +117,24 @@
 				94447C7E1AF13C730074E937 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94CC9B811B0CD6330087B0AD /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				94447C6B1AF13C730074E937 /* ViewController.swift */,
+				94A6D0501AFAACDF006D4121 /* TimerEditViewController.swift */,
+				94792EB31AF9460600240A05 /* TimerDetailViewController.swift */,
+			);
+			name = "View Controllers";
+			sourceTree = "<group>";
+		};
+		94CC9B821B0CD64A0087B0AD /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				94792EB11AF93DBA00240A05 /* TimerModel.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

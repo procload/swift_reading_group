@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>BA9B2739-538A-42B7-B3C6-356027846EB0</string>
+	<key>IDESourceControlProjectName</key>
+	<string>coffeeTimer2</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>BD8A903693A11233D4280801EFFF85B6003B5507</key>
+		<string>github.com:procload/swift_reading_group.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>coffeeTimer2.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>BD8A903693A11233D4280801EFFF85B6003B5507</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:procload/swift_reading_group.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>BD8A903693A11233D4280801EFFF85B6003B5507</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>BD8A903693A11233D4280801EFFF85B6003B5507</string>
+			<key>IDESourceControlWCCName</key>
+			<string>coffeeTimer2</string>
+		</dict>
+	</array>
+</dict>
+</plist>
