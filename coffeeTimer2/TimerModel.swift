@@ -16,7 +16,7 @@ class TimerModel: NSObject {
         return "TimerModel(\(coffeeName))"
     }
     
-    init(coffeeName: String, duration: Int) {
+    init(coffeeName: String, duration: Int, type: String) {
         self.coffeeName = coffeeName
         self.duration = duration
         super.init()
