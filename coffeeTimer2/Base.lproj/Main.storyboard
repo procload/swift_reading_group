@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14E17e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2fR-3F-avx">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7525" systemVersion="14E36b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2fR-3F-avx">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7516"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -19,18 +19,18 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fEx-r8-Vmj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="479" y="-185"/>
+            <point key="canvasLocation" x="499" y="189"/>
         </scene>
         <!--Timer List Table Table View Controller-->
         <scene sceneID="kao-PA-KFv">
             <objects>
                 <tableViewController id="rOu-1e-LeG" customClass="TimerListTableTableViewController" customModule="coffeeTimer2" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="C3h-ta-DM9">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelectionDuringEditing="YES" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="C3h-ta-DM9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" textLabel="0fX-Ka-bkW" style="IBUITableViewCellStyleDefault" id="ORj-kU-yQ8">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Cell" textLabel="0fX-Ka-bkW" style="IBUITableViewCellStyleDefault" id="ORj-kU-yQ8">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ORj-kU-yQ8" id="gQm-ZJ-usR">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -43,6 +43,9 @@
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="OXv-DG-TO3" kind="showDetail" identifier="pushDetail" id="ydZ-2v-knv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -50,11 +53,20 @@
                             <outlet property="delegate" destination="rOu-1e-LeG" id="icf-C0-dbR"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="B7g-s7-rrc"/>
+                    <navigationItem key="navigationItem" id="B7g-s7-rrc">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="DRI-Wo-tab">
+                            <connections>
+                                <segue destination="0AT-vE-mNG" kind="presentation" identifier="newTimer" id="mud-Md-Ygz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="0AT-vE-mNG" kind="presentation" identifier="editDetail" id="qVV-8U-pCZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FmX-nh-8Eh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="516" y="876"/>
+            <point key="canvasLocation" x="377" y="1040"/>
         </scene>
         <!--Timer Edit View Controller-->
         <scene sceneID="KpZ-z9-SrD">
@@ -154,7 +166,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a84-lL-YNk">
-                                <rect key="frame" x="279" y="72" width="42" height="21"/>
+                                <rect key="frame" x="279" y="28" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -172,7 +184,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Wem-AO-i5R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1322" y="711"/>
+            <point key="canvasLocation" x="1291" y="553"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="wSu-km-0Le">
@@ -191,4 +203,7 @@
             <point key="canvasLocation" x="-354.375" y="998.23943661971828"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="mud-Md-Ygz"/>
+    </inferredMetricsTieBreakers>
 </document>

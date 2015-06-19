@@ -12,30 +12,34 @@ class TimerListTableTableViewController: UITableViewController {
     
     var coffeeTimers: [TimerModel]!
     var teaTimers: [TimerModel]!
+    var delegate: TimerEditViewControllerDelegate!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
         coffeeTimers = [
-            TimerModel(coffeeName: "Colombian", duration: 240, type: .Coffee),
-            TimerModel(coffeeName: "Mexican", duration: 200, type: .Coffee)
+            TimerModel(name: "Colombian", duration: 240, type: .Coffee),
+            TimerModel(name: "Mexican", duration: 200, type: .Coffee)
         ]
         teaTimers = [
-            TimerModel(coffeeName: "Green Tea", duration: 400, type: .Tea),
-            TimerModel(coffeeName: "Oolong", duration: 400, type: .Tea),
-            TimerModel(coffeeName: "Rooibos", duration: 480, type: .Tea)
+            TimerModel(name: "Green Tea", duration: 400, type: .Tea),
+            TimerModel(name: "Oolong", duration: 400, type: .Tea),
+            TimerModel(name: "Rooibos", duration: 480, type: .Tea)
         ]
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        navigationItem.leftBarButtonItem = editButtonItem()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if presentedViewController != nil {
+            tableView.reloadData()
+        }
     }
 
     // MARK: - Table view data source
@@ -63,9 +67,16 @@ class TimerListTableTableViewController: UITableViewController {
             }
         }()
         
-        cell.textLabel?.text = timerModel.coffeeName
+        cell.textLabel?.text = timerModel.name
 
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        if tableView.editing {
+            let cell = tableView.cellForRowAtIndexPath(indexPath)
+            performSegueWithIdentifier("editDetail", sender: cell)
+        }
     }
     
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -75,50 +86,82 @@ class TimerListTableTableViewController: UITableViewController {
             return "Teas"
         }
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-        if editingStyle == .Delete {
-            // Delete the row from the data source
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if let cell = sender as? UITableViewCell {
+            let indexPath = tableView.indexPathForCell(cell)!
+            
+            let timerModel: TimerModel = {
+                if indexPath.section == 0 {
+                    return self.coffeeTimers[indexPath.row]
+                } else {
+                    return self.teaTimers[indexPath.row]
+                }
+            }()
+            
+            if segue.identifier == "pushDetail" {
+                let detailViewController = segue.destinationViewController as! TimerDetailViewController
+                detailViewController.timerModel = timerModel
+            } else if segue.identifier == "editDetail" {
+                let navigationController = segue.destinationViewController as! UINavigationController
+                let editViewController = navigationController.topViewController as! TimerEditViewController
+                
+                editViewController.timerModel = timerModel
+                editViewController.delegate = self
+            }
+        } else if let addButton = sender as? UIBarButtonItem {
+            if segue.identifier == "newTimer" {
+                let navigationController = segue.destinationViewController as! UINavigationController
+                let editViewController = navigationController.topViewController as! TimerEditViewController
+                
+                editViewController.creatingNewTimer = true
+                editViewController.timerModel = TimerModel(name: "", duration: 240, type: .Coffee)
+                editViewController.delegate = self
+            }
+        }
     }
-    */
+    
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String?, sender: AnyObject?) -> Bool {
+        if identifier == "pushDetail" {
+            // Do not go to the detail view if in editing mode
+            if tableView.editing {
+                return false
+            }
+        }
+        
+        return true
+    }
 
+}
+
+extension TimerListTableTableViewController: TimerEditViewControllerDelegate {
+    func timerEditViewControllerDidCancel(viewController: TimerEditViewController) {
+        
+    }
+    
+    func timerEditViewControllerDidSave(viewController: TimerEditViewController) {
+        let model = viewController.timerModel
+        let type = model.type
+        
+        if type == .Coffee {
+            if !contains(coffeeTimers, model) {
+                coffeeTimers.append(model)
+            }
+            
+            // Checks if item is in the teaTimers array
+            // and if so, remove it.
+            teaTimers = teaTimers.filter({ (item) -> Bool in
+                return item != model
+            })
+        } else { //Type must be tea
+            if !contains(teaTimers, model) {
+                teaTimers.append(model)
+            }
+            
+            coffeeTimers = coffeeTimers.filter({ (item) -> Bool in
+                return item != model
+            })
+        }
+    }
 }
